@@ -1,0 +1,27 @@
+<!--
+  @description       : 
+  @author            : Nazar Voinarovych
+  @group             : 
+  @last modified on  : 11-21-2024
+  @last modified by  : Nazar Voinarovych
+-->
+<template>
+    <lightning-quick-action-panel header="Cancel Appointment">
+
+        <lightning-record-edit-form object-api-name={objectApiName} record-id={recordId} onsuccess={handleSuccess}>
+            <div class="slds-modal__content slds-p-around_medium">
+                <p>Are you sure you want to cancel this appointment?</p>
+            </div>
+            <lightning-output-field field-name="Name"></lightning-output-field>
+            <lightning-output-field field-name="Patient_Name__c"></lightning-output-field>
+            <lightning-output-field field-name="Dentist_Name__c"></lightning-output-field>
+            <lightning-output-field field-name="Appointment_Date__c"></lightning-output-field>
+            <lightning-output-field field-name="Appointment_Time__c"></lightning-output-field>
+            <lightning-output-field field-name="Notes__c"></lightning-output-field>
+            <lightning-button variant="brand" type="submit" label="Confirm"></lightning-button>
+            <lightning-button variant="neutral" type="button" label="Cancel" onclick={handleCancel}></lightning-button>
+
+        </lightning-record-edit-form>
+    </lightning-quick-action-panel>
+    
+</template>

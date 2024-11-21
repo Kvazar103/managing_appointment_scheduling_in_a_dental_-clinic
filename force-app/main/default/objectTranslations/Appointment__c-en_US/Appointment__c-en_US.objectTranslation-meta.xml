@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Appointment</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Appointments</value>
+    </caseValues>
+    <layouts>
+        <layout>Appointment Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Add Appointment --></label>
+        <name>Add_Appointment</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Cancel Appointment --></label>
+        <name>Cancel_Appointment</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Reschedule Appointment --></label>
+        <name>Reschedule_Appointment</name>
+    </quickActions>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Appointment Date is required. --></errorMessage>
+        <name>ValidateAppointmentDate</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Patient Name is required. --></errorMessage>
+        <name>ValidatePatientName</name>
+    </validationRules>
+</CustomObjectTranslation>
