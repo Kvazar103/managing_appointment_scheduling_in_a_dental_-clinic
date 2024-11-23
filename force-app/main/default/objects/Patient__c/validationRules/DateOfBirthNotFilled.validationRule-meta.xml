@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DateOfBirthNotFilled</fullName>
+    <active>false</active>
+    <errorConditionFormula>ISBLANK( Date_of_birth__c )</errorConditionFormula>
+    <errorDisplayField>Date_of_birth__c</errorDisplayField>
+    <errorMessage>Date of Birth is required</errorMessage>
+</ValidationRule>

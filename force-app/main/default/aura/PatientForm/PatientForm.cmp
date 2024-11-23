@@ -1,0 +1,28 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,lightning:isUrlAddressable,lightning:actionOverride" access="global">
+    <aura:attribute name="errors" type="Map" default="{}" />
+    <aura:attribute name="title" type="String" />
+    
+    <lightning:navigation aura:id="navigationMixin" />
+
+    <lightning:card title="New Patient">
+        
+        <lightning:recordEditForm
+            objectApiName="Patient__c"
+            onsuccess="{!c.handleSuccess}"
+            onerror="{!c.handleError}">
+            
+            
+            <lightning:inputField fieldName="Name" aura:id="name" required="true" />
+            <lightning:inputField fieldName="Last_Name__c" aura:id="lastName" required="true" />
+            <lightning:inputField fieldName="Date_of_birth__c" aura:id="dob" required="true" />
+            <lightning:inputField fieldName="Contact_Information__c" aura:id="contactInfo" required="true" />
+            <lightning:inputField fieldName="Medical_Information__c" aura:id="medicalInformation" />
+            <lightning:inputField fieldName="Notes__c" aura:id="notes" />
+            <lightning:inputField fieldName="Dentist__c" aura:id="dentist" />
+
+            
+            <lightning:button type="submit" label="Save" variant="brand" />
+            <lightning:button label="Cancel" variant="neutral" onclick="{!c.handleCancel}" />
+        </lightning:recordEditForm>
+    </lightning:card>
+</aura:component>
