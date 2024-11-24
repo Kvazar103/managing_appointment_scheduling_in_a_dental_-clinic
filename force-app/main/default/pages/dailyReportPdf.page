@@ -1,0 +1,55 @@
+<!--
+  @description       : 
+  @author            : Nazar Voinarovych
+  @group             : 
+  @last modified on  : 11-24-2024
+  @last modified by  : Nazar Voinarovych
+-->
+<apex:page renderAs="pdf" showHeader="false" applyHtmlTag="false" standardStylesheets="false" controller="AppointmentController">
+<head>
+<style type="text/css">
+    thead {
+        border-bottom: 2px solid rgb(160 160 160);
+        text-align: center;
+        background-color: #2c5e77;
+        color: #fff;
+    }
+    tbody {
+        background-color: #e4f0f5;
+    }
+</style>
+
+</head>
+<table>
+    <thead>
+      <tr>
+        <th rowspan="2">Appointment Time</th>
+        <th rowspan="2">Dentist Name</th>
+        <th rowspan="2">Patient Name</th>
+        <th rowspan="2">Status</th>
+      </tr>
+
+    </thead>
+    <tbody>
+        <apex:repeat value="{!todayAppointments}" var="Appointment">
+        <tr>
+            <td>
+                <apex:outputText value="{!LEFT(TEXT(Appointment.Appointment_Time__c), 5)}"/>
+            </td>
+            <td>
+                <apex:outputText value="{!Appointment.Dentist_Name__c}"/>
+            </td>
+            <td>
+                <apex:outputText value="{!Appointment.Patient_Name__c}"/>
+            </td>
+            <td>
+                <apex:outputText value="{!Appointment.Status__c}"/>
+            </td>
+            
+        </tr>
+        </apex:repeat>
+    </tbody>
+  </table>
+  
+
+</apex:page>

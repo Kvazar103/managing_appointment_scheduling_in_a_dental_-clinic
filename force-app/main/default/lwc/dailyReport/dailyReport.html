@@ -1,0 +1,20 @@
+<!--
+  @description       : 
+  @author            : Nazar Voinarovych
+  @group             : 
+  @last modified on  : 11-24-2024
+  @last modified by  : Nazar Voinarovych
+-->
+<template>
+    <div class="c-container">
+      <lightning-layout horizontal-align="space" vertical-align="space">
+        <lightning-layout-item size="6" padding="around-small">
+          <lightning-button variant="brand" label="Generate Daily Report" title="View Report" onclick={handleViewReport} class="slds-m-left_x-small"></lightning-button>
+        </lightning-layout-item>
+        <lightning-layout-item size="6" padding="around-small">
+          <lightning-button variant="brand-outline" label="Download Report" title="Download Report" onclick={handleDownloadReport} class="slds-m-left_x-small"></lightning-button>
+        </lightning-layout-item>
+      </lightning-layout>
+
+    </div>
+</template>
