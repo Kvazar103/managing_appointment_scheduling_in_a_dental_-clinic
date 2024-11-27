@@ -16,9 +16,12 @@
         <members>*</members>
         <name>Layout</name>
     </types>
-    <version>57.0</version>
     <types>
-    <members>Appointment_Scheduler</members> 
-    <name>FlexiPage</name>
-</types>
+        <members>Appointment_Scheduler</members> 
+        <name>FlexiPage</name>
+    </types>
+    <types>
+        <members>Appointment_Scheduler</members> 
+        <name>CustomTab</name>
+    </types>
 </Package>
