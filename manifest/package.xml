@@ -17,4 +17,8 @@
         <name>Layout</name>
     </types>
     <version>57.0</version>
+    <types>
+    <members>Appointment_Scheduler</members> 
+    <name>FlexiPage</name>
+</types>
 </Package>
