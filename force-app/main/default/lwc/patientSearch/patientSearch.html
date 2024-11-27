@@ -1,0 +1,9 @@
+<template>
+    <lightning-input type="text" placeholder="Search by Name" onchange={handleSearch}></lightning-input>
+    <template if:true={hasResults}>
+        <lightning-datatable data={patients} columns={columns} key-field="id"></lightning-datatable>
+    </template>
+    <template if:false={hasResults}>
+        <p>No patients found.</p>
+    </template>
+</template>
