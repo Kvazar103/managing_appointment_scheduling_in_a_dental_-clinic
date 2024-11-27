@@ -2,10 +2,13 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
         <members>Calendar__c</members>
+        <members>Dentist__c</members>
+        <members>Patient__c</members>
         <name>CustomObject</name>
     </types>
     <types>
         <members>Appointment_Scheduler</members>
+        <members>Dental_Clinic</members>
         <name>CustomApplication</name>
     </types>
     <types>
@@ -17,11 +20,63 @@
         <name>Layout</name>
     </types>
     <types>
+        <members>Dental_Clinic</members> 
+        <name>FlexiPage</name>
+    </types>
+    <types>
         <members>Appointment_Scheduler</members> 
         <name>FlexiPage</name>
     </types>
     <types>
         <members>Appointment_Scheduler</members> 
         <name>CustomTab</name>
+    </types>
+    <types>
+        <members>Dental_Clinic</members> 
+        <name>CustomTab</name>
+    </types>
+        <types>
+        <members>*</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>CustomTab</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>HomePageLayout</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>QuickAction</name>
+    </types>
+        <types>
+        <members>*</members>
+        <name>AuraDefinitionBundle</name>
+    </types>
+       <types>
+        <members>*</members>
+        <name>ApexPage</name>
+    </types>
+        <types>
+        <members>Admin</members> 
+        <name>Profile</name>
+    </types>
+    <types>
+        <members>Appointment Reports/*</members>
+        <name>Report</name>
     </types>
 </Package>
