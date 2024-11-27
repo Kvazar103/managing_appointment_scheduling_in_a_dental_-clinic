@@ -1,44 +1,83 @@
 <template>
-    <lightning-card title="Appointment Calendar">
-        <div class="header">
-            <lightning-input type="date" label="Date From" value={dateFrom} onchange={handleDateChange}></lightning-input>
-            <lightning-input type="date" label="Date To" value={dateTo} onchange={handleDateChange}></lightning-input>
-            <lightning-input type="search" label="Search" value={searchTerm} onchange={handleSearch}></lightning-input>
+    <lightning-card title="Appointment Scheduler">
+        <!-- Search -->
+        <div class="slds-m-bottom_medium">
+            <lightning-input 
+                type="search" 
+                label="Search" 
+                name="searchTerm" 
+                onchange={handleSearch}>
+            </lightning-input>
         </div>
+
+        <!-- Appointment List -->
         <template if:true={appointments.length}>
             <table class="slds-table slds-table_bordered">
                 <thead>
                     <tr>
-                        <th>Appointment ID</th>
                         <th>Patient Name</th>
                         <th>Dentist Name</th>
+                        <th>Appointment Date</th>
                         <th>Appointment Time</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <template for:each={appointments} for:item="appointment">
+                    <template for:each={formattedAppointments} for:item="appointment">
                         <tr key={appointment.Id}>
-                            <td>{appointment.Id}</td>
                             <td>{appointment.Patient_Name__c}</td>
                             <td>{appointment.Dentist_Name__c}</td>
+                            <td>{appointment.Appointment_Date__c}</td>
                             <td>{appointment.Appointment_Time__c}</td>
                         </tr>
                     </template>
                 </tbody>
             </table>
-        <lightning-button
-            label="Save Appointment"
-            variant="brand"
-            onclick={handleSave}>
-        </lightning-button>
-        <lightning-button
-            label="Cancel"
-            variant="neutral"
-            onclick={handleCancel}>
-        </lightning-button>
         </template>
         <template if:false={appointments.length}>
             <p>No appointments found.</p>
         </template>
+
+        <!-- Add Appointment -->
+        <lightning-input 
+            type="text" 
+            label="Patient Name" 
+            name="patientName" 
+            value={patientName} 
+            onchange={handleInputChange}>
+        </lightning-input>
+        <lightning-input 
+            type="text" 
+            label="Dentist Name" 
+            name="dentistName" 
+            value={dentistName} 
+            onchange={handleInputChange}>
+        </lightning-input>
+        <lightning-input 
+            type="date" 
+            label="Appointment Date" 
+            name="appointmentDate" 
+            value={appointmentDate} 
+            onchange={handleInputChange}>
+        </lightning-input>
+        <lightning-input 
+            type="time" 
+            label="Appointment Time" 
+            name="appointmentTime" 
+            value={appointmentTime} 
+            onchange={handleInputChange}>
+        </lightning-input>
+
+        <div class="slds-m-top_medium">
+            <lightning-button 
+                label="Save Appointment" 
+                variant="brand" 
+                onclick={handleSave}>
+            </lightning-button>
+            <lightning-button 
+                label="Cancel" 
+                variant="neutral" 
+                onclick={handleCancel}>
+            </lightning-button>
+        </div>
     </lightning-card>
 </template>

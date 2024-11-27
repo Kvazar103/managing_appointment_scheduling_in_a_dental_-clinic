@@ -1,43 +1,16 @@
 public with sharing class AppointmentHandler {
-    public static List<Calendar__c> fetchAppointments(String dateFrom, String dateTo, String searchTerm) {
-        List<Calendar__c> appointments = new List<Calendar__c>();
-        List<String> conditions = new List<String>();
-    
-        if (!String.isEmpty(dateFrom)) {
-            conditions.add('Appointment_Time__c >= :dateFrom');
-        }
-        if (!String.isEmpty(dateTo)) {
-            conditions.add('Appointment_Time__c <= :dateTo');
-        }
-        if (!String.isEmpty(searchTerm)) {
-            conditions.add('(Patient_Name__c LIKE :searchTerm OR Dentist_Name__c LIKE :searchTerm)');
-        }
-    
+    public static List<Calendar__c> fetchAppointments(String searchTerm) {
         String query = 'SELECT Id, Patient_Name__c, Dentist_Name__c, Appointment_Time__c FROM Calendar__c';
-        if (!conditions.isEmpty()) {
-            query += ' WHERE ' + String.join(conditions, ' AND ');
+        if (!String.isBlank(searchTerm)) {
+            query += ' WHERE Patient_Name__c LIKE :searchTerm OR Dentist_Name__c LIKE :searchTerm';
         }
-    
-        try {
-            appointments = Database.query(query);
-        } catch (Exception e) {
-            System.debug('Error in SOQL Query: ' + e.getMessage());
-        }
-    
-        return appointments;
-    }    
-    
-    public static String saveAppointment(Calendar__c appointment) {
-        if (appointment == null) {
-            throw new CustomException('Appointment cannot be null');
-        }
-        if (String.isBlank(appointment.Patient_Name__c) || String.isBlank(appointment.Dentist_Name__c) || appointment.Appointment_Time__c == null) {
-            throw new CustomException('Missing required fields');
-        }
-
-        upsert appointment; 
-        return 'Appointment was made successfully';
+        return Database.query(query);
     }
-    
-    public class CustomException extends Exception {}
+
+    public static void saveAppointment(Calendar__c appointment) {
+        if (appointment.Patient_Name__c == null || appointment.Dentist_Name__c == null || appointment.Appointment_Time__c == null) {
+            throw new AuraHandledException('All fields are required.');
+        }
+        upsert appointment;
+    }
 }
